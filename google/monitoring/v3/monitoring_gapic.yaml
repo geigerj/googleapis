@@ -313,11 +313,21 @@ interfaces:
     required_fields:
     - name
     - time_series
+    sample_code_init_fields:
+    - time_series[0].metric.type="custom.googleapis.com/stores/daily_sales"
+    - time_series[0].metric.labels{store_id}=Pittsburg
+    - time_series[0].resource.type="global"
+    # Remove once we have a syntax for 
+    # - time_series[0].resource.labels{project_id}="[ PROJECT_ID ]"
+    # Note: getting current time not supported?
+    - time_series[0].points.interval.end_time.seconds=1489504140
+    - time_series[0].points.value=123.45
     request_object_method: true
     retry_codes_name: non_idempotent
     retry_params_name: default
     field_name_patterns:
       name: project
+      time_series[0].resource.labels{project_id}: project
     resource_name_treatment: STATIC_TYPES
     timeout_millis: 60000
 resource_name_generation:
