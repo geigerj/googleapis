@@ -45,6 +45,7 @@ interfaces:
       - parameters:
         - input_uri
         - features
+        - input_content
         - video_context
         - output_uri
         - location_id
@@ -56,7 +57,6 @@ interfaces:
       max_poll_delay_millis: 45000
       total_poll_timeout_millis: 86400000
     required_fields:
-      - input_uri
       - features
     request_object_method: true
     retry_codes_name: idempotent
